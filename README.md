@@ -16,3 +16,8 @@ dependencias -> spring-boo-started-data-jpa
 comecei criando os model, repository, controller
 
 
+nome das tabelas 
+-> usuarios
+-> pessoas
+-> usuario_pessoas = JOIN
+-> refreshtoken
