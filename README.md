@@ -13,7 +13,7 @@ dependencias -> spring-boo-started-data-jpa
 -> spring-security-test
 
 
-comecei criando os model, repository, controller
+comecei criando os model, repository
 
 
 nome das tabelas 
@@ -21,3 +21,4 @@ nome das tabelas
 -> pessoas
 -> usuario_pessoas = JOIN
 -> refreshtoken
+
