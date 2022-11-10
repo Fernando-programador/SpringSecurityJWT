@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -44,8 +45,62 @@ public class Usuario {
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable()
+	@JoinTable(name = "usuario_pessoas",
+				joinColumns = @JoinColumn(name = "usuario_id"),
+				inverseJoinColumns = @JoinColumn(name = "pessoa_id")
+			)
 	private Set<Pessoa> pessoas = new HashSet<>();
+
+	public Usuario() {
+
+	}
+
+	public Usuario(@NotBlank @Size(max = 30) String username, @NotBlank @Size(max = 60) String email,
+			@NotBlank @Size(max = 160) String password) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<Pessoa> getPessoas() {
+		return pessoas;
+	}
+
+	public void setPessoas(Set<Pessoa> pessoas) {
+		this.pessoas = pessoas;
+	}
 
 
 
