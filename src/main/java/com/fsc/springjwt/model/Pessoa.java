@@ -19,13 +19,13 @@ public class Pessoa {
 
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20, name = "nome")
-	private Enunpessoa nome;
+	private EnunPessoa nome;
 
 	public Pessoa() {
 
 	}
 
-	public Pessoa(Enunpessoa nome) {
+	public Pessoa(EnunPessoa nome) {
 		super();
 		this.nome = nome;
 	}
@@ -38,11 +38,11 @@ public class Pessoa {
 		this.id = id;
 	}
 
-	public Enunpessoa getNome() {
+	public EnunPessoa getNome() {
 		return nome;
 	}
 
-	public void setNome(Enunpessoa nome) {
+	public void setNome(EnunPessoa nome) {
 		this.nome = nome;
 	}
 

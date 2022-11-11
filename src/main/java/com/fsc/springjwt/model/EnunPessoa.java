@@ -1,6 +1,6 @@
 package com.fsc.springjwt.model;
 
-public enum Enunpessoa {
+public enum EnunPessoa {
 PESSOA_USER,
 PESSOA_MODERATOR,
 PESSOA_ADMIN
