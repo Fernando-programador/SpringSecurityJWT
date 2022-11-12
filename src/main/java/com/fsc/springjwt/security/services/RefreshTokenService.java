@@ -4,10 +4,13 @@ import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.fsc.springjwt.exception.TokenRefreshException;
 import com.fsc.springjwt.model.RefreshToken;
 import com.fsc.springjwt.repository.RefreshTokenRepository;
 import com.fsc.springjwt.repository.UsuarioRepository;
@@ -40,8 +43,21 @@ public class RefreshTokenService {
 		return refreshToken;
 	}
 	
+	public RefreshToken verifyExpiration(RefreshToken token) {
+		if(token.getExpiryDate().compareTo(Instant.now()) < 0) {
+			refreshTokenRepository.delete(token);
+			throw new TokenRefreshException(token.getToken(), "O token de atualização expirou."
+					+ " Por favor, faça uma nova solicitação de sinalização");
+		}
+		return token;
+	}
 	
 	
+	@Transactional
+	public int deleteByUsuarioiId(Long usuario_id) {
+		return refreshTokenRepository.deleteByUser(usuarioRepository
+				.findById(usuario_id).get());
+	}
 	
 	
 }
