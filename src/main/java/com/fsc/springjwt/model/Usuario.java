@@ -61,6 +61,13 @@ public class Usuario {
 		this.email = email;
 		this.password = password;
 	}
+	
+	
+
+	public Usuario(Set<Pessoa> pessoas) {
+		super();
+		this.pessoas = pessoas;
+	}
 
 	public Long getId() {
 		return id;

@@ -8,10 +8,11 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.header.writers.frameoptions.StaticAllowFromStrategy;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fsc.springjwt.model.Usuario;
+
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -37,6 +38,11 @@ public class UserDetailsImpl implements UserDetails {
 		this.email = email;
 		this.password = password;
 		this.authorities = authorities;
+		
+	}
+
+	public UserDetailsImpl() {
+	
 	}
 
 	public static UserDetailsImpl build(Usuario usuario) {
@@ -85,7 +91,6 @@ public class UserDetailsImpl implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
