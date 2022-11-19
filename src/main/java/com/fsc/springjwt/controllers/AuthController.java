@@ -57,6 +57,7 @@ public class AuthController {
 	@Autowired
 	private JwtUtils jwtUtils;
 
+	@Autowired
 	private RefreshTokenService refreshTokenService;
 
 	
@@ -89,7 +90,7 @@ public class AuthController {
 	
 	
 	
-	@PostMapping("/cadastrar") // signup
+	@PostMapping//("/signup") // signup cadastrar
 	public ResponseEntity<?> registrarUsuario(@Valid @RequestBody SignupRequest signUpRequest) {
 		if (usuarioRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity.badRequest()

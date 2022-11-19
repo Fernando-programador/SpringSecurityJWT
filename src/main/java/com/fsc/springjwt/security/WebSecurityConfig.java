@@ -22,8 +22,8 @@ import com.fsc.springjwt.security.services.UserDetailsServiceImpl;
 
 @Configuration
 @EnableGlobalMethodSecurity(
-		// securedEnabled = true,
-		// jsr250Enabled = true,
+	//	securedEnabled = true,
+	//	 jsr250Enabled = true,
 		prePostEnabled = true)
 
 public class WebSecurityConfig {
